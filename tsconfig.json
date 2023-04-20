@@ -1,0 +1,13 @@
+{
+    "sourceMap": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "esnext",
+        "baseUrl": "src",
+        "checkJs": true,
+        "esModuleInterop": true,
+        "types": ["node"]
+    },
+    "exclude": ["node_modules", "**/node_modules/*"],
+    
+}
