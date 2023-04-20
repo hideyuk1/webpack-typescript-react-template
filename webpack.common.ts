@@ -7,7 +7,7 @@ import webpack from "webpack";
 const publicPath = "/";
 
 const webpackConfig: webpack.Configuration = {
-    entry: "./src/index.ts",
+    entry: "./src/index.tsx",
     output: {
         filename: "main.bundle.js",
         path: path.resolve(__dirname, "dist"),
@@ -17,7 +17,20 @@ const webpackConfig: webpack.Configuration = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'swc-loader',
+                use: [
+                    {
+                        loader: 'swc-loader',
+                        options: {
+                            jsc: {
+                                transform: {
+                                    react: {
+                                        runtime: 'automatic'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
                 exclude: /node_modules/,
             },
             {
